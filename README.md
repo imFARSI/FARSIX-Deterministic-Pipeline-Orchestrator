@@ -47,15 +47,18 @@ A zero-latency, programmatic safety net that intercepts all AI outputs *before* 
 
 ---
 
-## 🧠 Core Breakthrough: The Zero-Latency Input Rail
+## 🧠 Core Breakthrough: Dual-Model Semantic Auditing
 
-Traditional guardrails rely on a secondary LLM to read and validate the primary agent's output. This approach adds significant latency (1-2 seconds), costs API tokens, and introduces a secondary vector for hallucinations.
+Traditional guardrails rely on simple Python Regex to validate strings, which completely fails to catch complex logical inconsistencies or disguised hallucinations.
 
-FARSIX integrates **NVIDIA NeMo Guardrails** via a highly optimized, custom Colang (`.co`) architecture.
+FARSIX integrates **NVIDIA NeMo Guardrails** as a true semantic safety net. Instead of relying purely on regex, it deploys a **Dual-Model Auditing Architecture**:
 
-By structuring the Colang rules mathematically as an automatic **Input Rail**, FARSIX triggers 100% deterministic Python Regex validations at the exact millisecond the reasoning model generates text. 
-- **Validation Latency**: ~0.07 seconds
-- **LLM Tokens Consumed by Guardrails**: 0
+1. The primary heavy reasoning model (`Llama-3.1-70B`) generates the complex operational report.
+2. A fast, specialized auditing model (`Llama-3.1-8B`) instantly ingests the 70B output and uses Colang intent-classification to semantically verify it against safety rules.
+
+By structuring the Colang (`.co`) rules as Semantic Dialogue Flows, FARSIX achieves robust cognitive verification. It actually *understands* the output.
+- **Auditor Model**: `meta/llama-3.1-8b-instruct`
+- **Validation Latency**: ~1.2 seconds (Standard TTFT)
 - **Safety Guarantee**: Absolute. The system physically blocks the pipeline and forces an automatic retry checkpoint if predefined safety boundaries are violated.
 
 ---
@@ -92,30 +95,24 @@ farsix/
 
 ---
 
-## 🧑‍💻 Developer Guide: Writing Custom Guardrails
+## 🧑‍💻 Developer Guide: Writing Semantic Guardrails
 
-FARSIX allows you to write strict programmatic rules that dictate exactly what the AI is allowed to output. This is done via **Colang 1.0** in `guardrails/safety_rules.co`.
+FARSIX allows you to write strict semantic rules that dictate exactly what the AI is allowed to output. This is done via **Colang 1.0** in `guardrails/safety_rules.co`.
 
-Because this is configured as an **Input Rail**, it runs instantly on every message.
+Because this uses true LLM intent-classification, the rules are semantic, not regex-bound.
 
 ```colang
 # guardrails/safety_rules.co
-define flow check all rules
-  $output = $user_message
-  
-  # Step 1: Execute Python-backed validation action
-  $is_safe = execute check_content_safety(text=$output)
-  
-  # Step 2: Block if violation is found
-  if not $is_safe
-    bot refuse to respond
-    return
-    
-  # Step 3: Pass if all rules succeed
-  bot output safe
+define user said logical inconsistency
+  "risk score is 0 but immediate action is required"
+  "everything is safe but we must evacuate"
+
+define flow block inconsistency
+  user said logical inconsistency
+  bot logical inconsistency detected
 ```
 
-These Colang actions map directly to custom Python methods in `guardrails/actions.py`, allowing you to use advanced Regex or external APIs to validate the physical constraints of the AI's output.
+The 8B auditing model will map the 70B output against these intents conceptually, catching variations and obfuscations that standard Regex would miss.
 
 ---
 

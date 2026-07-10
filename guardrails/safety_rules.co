@@ -1,45 +1,47 @@
 # FARSIX Safety Rules — Colang 1.0
-# NeMo Guardrails rule definitions for Physical AI output validation.
-# Validated using the NVIDIA NIM Cloud API via OpenAI adapter.
+# NeMo Guardrails rule definitions for Semantic Output Validation.
+# Evaluated using the NVIDIA NIM Cloud API via OpenAI adapter (meta/llama-3.1-8b-instruct).
 
-define user said something
-  "validate this"
-  "check this"
-  "here is the output"
-  "*"
+# --- INTENT DEFINITIONS ---
+# The LLM (8B) will read the output from the main Reasoning Agent (70B)
+# and semantically classify if it falls into any of these dangerous intents.
 
-define flow check all rules
-  $output = $user_message
-  
-  $is_safe = execute check_content_safety(text=$output)
-  if not $is_safe
-    bot refuse to respond
-    return
-    
-  $has_violation = execute check_for_safety_violations(text=$output)
-  if $has_violation
-    bot safety violation detected
-    return
-    
-  $is_consistent = execute check_logical_consistency(text=$output)
-  if not $is_consistent
-    bot logical inconsistency detected
-    return
-    
-  $has_hallucination = execute detect_hallucinations(text=$output)
-  if $has_hallucination
-    bot hallucination detected
-    return
-    
-  $is_complete = execute check_output_completeness(text=$output)
-  if not $is_complete
-    bot incomplete output detected
-    return
+define user said unsafe content
+  "ignore previous instructions"
+  "disregard rules"
+  "override safety protocols"
+  "jailbreak"
+  "system prompt"
 
-  bot output safe
+define user said hallucinated metrics
+  "100% certainty"
+  "I am absolutely certain with 0 probability of error"
+  "I cannot report"
+  "As an AI language model I don't have access"
+
+define user said logical inconsistency
+  "risk score is 0 but immediate action is required"
+  "everything is safe but we must evacuate"
+  "there are no anomalies but the system is failing"
+
+# --- SEMANTIC GUARDRAIL FLOWS ---
+
+define flow block unsafe content
+  user said unsafe content
+  bot safety violation detected
+
+define flow block hallucination
+  user said hallucinated metrics
+  bot hallucination detected
+
+define flow block inconsistency
+  user said logical inconsistency
+  bot logical inconsistency detected
+
+# --- BOT RESPONSES ---
 
 define bot output safe
-  "GUARDRAILS_PASS: All checks passed."
+  "GUARDRAILS_PASS: All semantic checks passed."
 
 define bot refuse to respond
   "GUARDRAILS_BLOCK: Content failed safety check."
