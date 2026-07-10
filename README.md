@@ -1,6 +1,6 @@
 <div align="center">
   <h1>FARSIX: Deterministic Cognitive Pipeline Orchestrator & Guardrails Engine</h1>
-  <p><b>Advanced Automated Reasoning and Supervised Intelligence Framework</b></p>
+  <p><b>Advanced Agentic Reasoning and Supervised Intelligence Framework</b></p>
   
   <p>
     <a href="#"><img src="https://img.shields.io/badge/Python-3.11+-blue.svg" alt="Python"></a>
@@ -19,7 +19,7 @@
 
 In the modern era of Generative AI, building simple API wrappers around Large Language Models (LLMs) is sufficient for chatbots, but **unreliable for mission-critical enterprise workflows**. 
 
-LLMs suffer fundamentally from non-deterministic logic and hallucinations. If a complex automated reasoning pipeline hallucinates data in a critical analytical report or outputs malformed structural parameters, the downstream APIs will fail unpredictably. 
+LLMs suffer fundamentally from non-deterministic logic and hallucinations. If an agent or complex automated reasoning pipeline hallucinates data in a critical analytical report or outputs malformed structural parameters, the downstream APIs will fail unpredictably. 
 
 The industry demands a system that bridges the gap between the cognitive reasoning power of modern high-parameter LLMs and the absolute strictness of traditional deterministic software engineering.
 
@@ -27,7 +27,7 @@ The industry demands a system that bridges the gap between the cognitive reasoni
 
 ## 🚀 The Solution: FARSIX Architecture
 
-**FARSIX** (Framework for Automated Reasoning and Supervised Intelligence) is a production-grade orchestration pipeline designed specifically to solve the non-deterministic nature of complex LLM pipelines. 
+**FARSIX** (Framework for Agentic Reasoning and Supervised Intelligence) is a production-grade orchestration pipeline designed specifically to solve the non-deterministic nature of complex LLM pipelines. It is designed to be seamlessly integrated into existing multi-agent systems to act as the overarching deterministic safety layer.
 
 It implements a **Dual-Layer Cognitive Architecture**:
 
