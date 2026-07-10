@@ -92,6 +92,63 @@ farsix/
 
 ---
 
+## 🧑‍💻 Developer Guide: Writing Custom Guardrails
+
+FARSIX allows you to write strict programmatic rules that dictate exactly what the AI is allowed to output. This is done via **Colang 1.0** in `guardrails/safety_rules.co`.
+
+Because this is configured as an **Input Rail**, it runs instantly on every message.
+
+```colang
+# guardrails/safety_rules.co
+define flow check all rules
+  $output = $user_message
+  
+  # Step 1: Execute Python-backed validation action
+  $is_safe = execute check_content_safety(text=$output)
+  
+  # Step 2: Block if violation is found
+  if not $is_safe
+    bot refuse to respond
+    return
+    
+  # Step 3: Pass if all rules succeed
+  bot output safe
+```
+
+These Colang actions map directly to custom Python methods in `guardrails/actions.py`, allowing you to use advanced Regex or external APIs to validate the physical constraints of the AI's output.
+
+---
+
+## 🧑‍💻 Developer Guide: Programmatic Execution
+
+If you wish to bypass the UI Dashboard and use FARSIX purely as a headless backend API, you can dispatch missions programmatically via the `nim_router`:
+
+```python
+import asyncio
+from backend.nim_router import NIMRouter
+
+async def execute_headless_mission():
+    router = NIMRouter()
+    
+    # The dispatcher handles Vision -> Reasoning -> Guardrails
+    result = await router.dispatch_mission(
+        mission_type="visual_qa",
+        payload={
+            "image_path": "factory_diagram.png",
+            "instruction": "Verify if the robot arm path intersects the human walkway."
+        }
+    )
+    
+    if result["status"] == "SUCCESS":
+        print("Guardrails Passed:", result["final_report"])
+    else:
+        print("Mission Blocked or Failed:", result["error"])
+
+asyncio.run(execute_headless_mission())
+```
+
+---
+
 ## 💼 Primary Use Cases
 
 FARSIX is engineered for high-stakes, mission-critical environments:
