@@ -15,11 +15,11 @@
 
 ---
 
-## 📌 Executive Summary & The Physical AI Problem
+## 📌 Executive Summary & The Generative AI Bottleneck
 
-In the modern era of Generative AI, building API wrappers around Large Language Models (LLMs) is sufficient for chat applications, but **catastrophically dangerous for Physical AI** (Robotics, Factory Automation, and Autonomous Systems). 
+In the modern era of Generative AI, building simple API wrappers around Large Language Models (LLMs) is sufficient for chatbots, but **unreliable for mission-critical enterprise workflows**. 
 
-LLMs suffer fundamentally from non-deterministic logic and hallucinations. If an agent hallucinates a robotic actuator command, misdiagnoses a critical factory floor anomaly, or outputs malformed operational parameters, the results can lead to severe hardware damage or safety hazards. 
+LLMs suffer fundamentally from non-deterministic logic and hallucinations. If a multi-agent system hallucinates data in a critical analytical report or outputs malformed structural parameters, the downstream APIs will fail unpredictably. 
 
 The industry demands a system that bridges the gap between the cognitive reasoning power of modern high-parameter LLMs and the absolute strictness of traditional deterministic software engineering.
 
@@ -27,17 +27,17 @@ The industry demands a system that bridges the gap between the cognitive reasoni
 
 ## 🚀 The Solution: FARSIX Architecture
 
-**FARSIX** (Framework for Agentic Reasoning and Supervised Intelligence) is a production-grade orchestration pipeline designed specifically to solve the non-deterministic nature of multi-agent AI systems operating in physical environments. 
+**FARSIX** (Framework for Agentic Reasoning and Supervised Intelligence) is a production-grade orchestration pipeline designed specifically to solve the non-deterministic nature of multi-agent AI systems. 
 
 It implements a **Dual-Layer Cognitive Architecture**:
 
 ### 1. The Reasoning Layer (NVIDIA NIM)
 FARSIX delegates heavy cognitive processing to specialized NVIDIA models:
-- **Spatial & Visual Analysis**: Handled by `Nemotron-Nano-VL-8B` to ingest factory diagrams, robotic workspaces, and real-time sensor feeds.
-- **Logical Deductions**: Handled by `Llama-3.1-70B-Instruct` to formulate operational reports and root-cause diagnostics based on the visual findings.
+- **Visual Analysis**: Handled by `Nemotron-Nano-VL-8B` to ingest complex diagrams, UI screenshots, and visual data feeds.
+- **Logical Deductions**: Handled by `Llama-3.1-70B-Instruct` to formulate operational reports and complex analytics based on the visual findings.
 
 ### 2. The Deterministic Guardrails Layer (NVIDIA NeMo)
-A zero-latency, programmatic safety net that intercepts all AI outputs *before* they can be executed by downstream APIs or robotic controllers.
+A zero-latency, programmatic safety net that intercepts all AI outputs *before* they can be executed by downstream enterprise systems or databases.
 
 <div align="center">
   <img src="docs/assets/demo_1.png" width="100%" alt="FARSIX Dynamic SVG Orchestration Graph">
@@ -152,9 +152,9 @@ asyncio.run(execute_headless_mission())
 ## 💼 Primary Use Cases
 
 FARSIX is engineered for high-stakes, mission-critical environments:
-- **Factory Floor Auditing**: Analyzing security camera feeds to detect OSHA safety hazards or operational anomalies.
-- **Robotic QA Systems**: Verifying that a physical robot's planned action tokens do not violate geometric constraints before execution.
-- **Automated Root-Cause Diagnosis**: Ingesting complex machinery telemetry (CSV/Text) and providing verified, hallucination-free diagnostic reports to engineers.
+- **Automated Workflow Auditing**: Analyzing visual feeds or documents to detect operational anomalies.
+- **Enterprise QA Systems**: Verifying that an AI's planned output tokens do not violate system constraints before execution.
+- **Complex Root-Cause Diagnosis**: Ingesting complex telemetry (CSV/Text) and providing verified, hallucination-free diagnostic reports to engineers.
 
 ---
 
@@ -197,4 +197,4 @@ python tests/test_guardrails.py
 ```
 
 ---
-*Built for the next generation of Physical AI systems.*
+*Built for the next generation of Enterprise AI systems.*
