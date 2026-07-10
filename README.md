@@ -1,16 +1,16 @@
 <div align="center">
-  <h1>FARSIX: Deterministic Multi-Agent Orchestrator & Cognitive Guardrails Engine</h1>
-  <p><b>Advanced Agentic Reasoning and Supervised Intelligence Framework</b></p>
+  <h1>FARSIX: Deterministic Cognitive Pipeline Orchestrator & Guardrails Engine</h1>
+  <p><b>Advanced Automated Reasoning and Supervised Intelligence Framework</b></p>
   
   <p>
     <a href="#"><img src="https://img.shields.io/badge/Python-3.11+-blue.svg" alt="Python"></a>
     <a href="#"><img src="https://img.shields.io/badge/NVIDIA-NIM%20API-76B900.svg" alt="NVIDIA"></a>
     <a href="#"><img src="https://img.shields.io/badge/NeMo-Guardrails-red.svg" alt="NeMo"></a>
-    <a href="#"><img src="https://img.shields.io/badge/Architecture-Multi--Agent%20DAG-purple.svg" alt="DAG"></a>
+    <a href="#"><img src="https://img.shields.io/badge/Architecture-Pipeline%20DAG-purple.svg" alt="DAG"></a>
   </p>
 
   <!-- Autoplaying Demo Video -->
-  https://github.com/imFARSI/FARSIX-Deterministic-Multi-Agent-Orchestrator/raw/master/docs/assets/demo.mp4
+  https://github.com/imFARSI/FARSIX-Deterministic-Pipeline-Orchestrator/raw/master/docs/assets/demo.mp4
 </div>
 
 ---
@@ -19,7 +19,7 @@
 
 In the modern era of Generative AI, building simple API wrappers around Large Language Models (LLMs) is sufficient for chatbots, but **unreliable for mission-critical enterprise workflows**. 
 
-LLMs suffer fundamentally from non-deterministic logic and hallucinations. If a multi-agent system hallucinates data in a critical analytical report or outputs malformed structural parameters, the downstream APIs will fail unpredictably. 
+LLMs suffer fundamentally from non-deterministic logic and hallucinations. If a complex automated reasoning pipeline hallucinates data in a critical analytical report or outputs malformed structural parameters, the downstream APIs will fail unpredictably. 
 
 The industry demands a system that bridges the gap between the cognitive reasoning power of modern high-parameter LLMs and the absolute strictness of traditional deterministic software engineering.
 
@@ -27,7 +27,7 @@ The industry demands a system that bridges the gap between the cognitive reasoni
 
 ## 🚀 The Solution: FARSIX Architecture
 
-**FARSIX** (Framework for Agentic Reasoning and Supervised Intelligence) is a production-grade orchestration pipeline designed specifically to solve the non-deterministic nature of multi-agent AI systems. 
+**FARSIX** (Framework for Automated Reasoning and Supervised Intelligence) is a production-grade orchestration pipeline designed specifically to solve the non-deterministic nature of complex LLM pipelines. 
 
 It implements a **Dual-Layer Cognitive Architecture**:
 
@@ -42,7 +42,7 @@ A zero-latency, programmatic safety net that intercepts all AI outputs *before* 
 <div align="center">
   <img src="docs/assets/demo_1.png" width="100%" alt="FARSIX Dynamic SVG Orchestration Graph">
   <br>
-  <i>The real-time SVG Orchestration Dashboard tracking the multi-agent pipeline states.</i>
+  <i>The real-time SVG Orchestration Dashboard tracking the execution pipeline states.</i>
 </div>
 
 ---
@@ -169,8 +169,8 @@ FARSIX is designed to run locally, connecting securely to the NVIDIA NIM cloud A
 ### 2. Setup
 Clone the repository and install the required dependencies:
 ```bash
-git clone https://github.com/imFARSI/FARSIX-Deterministic-Multi-Agent-Orchestrator.git
-cd FARSIX-Deterministic-Multi-Agent-Orchestrator
+git clone https://github.com/imFARSI/FARSIX-Deterministic-Pipeline-Orchestrator.git
+cd FARSIX-Deterministic-Pipeline-Orchestrator
 
 pip install -r requirements.txt
 ```
