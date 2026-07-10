@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>FARSIX: Deterministic VLA Orchestrator & Cognitive Guardrails Engine</h1>
+  <h1>FARSIX: Deterministic Multi-Agent Orchestrator & Cognitive Guardrails Engine</h1>
   <p><b>Advanced Agentic Reasoning and Supervised Intelligence Framework</b></p>
 
   <!-- Autoplaying Demo Video -->
@@ -12,7 +12,7 @@
 
 In the modern era of Generative AI, wrapping Large Language Models (LLMs) in simple API scripts is sufficient for chatbots, but **catastrophically dangerous for Physical AI** (Robotics, Factory Automation, Autonomous Systems). 
 
-LLMs suffer from non-deterministic logic and hallucinations. If a Vision-Language-Action (VLA) model hallucinates a robotic actuator command or misdiagnoses a factory floor anomaly, the results can lead to critical hardware damage or safety hazards. 
+LLMs suffer from non-deterministic logic and hallucinations. If a generative AI agent hallucinates a robotic actuator command or misdiagnoses a factory floor anomaly, the results can lead to critical hardware damage or safety hazards. 
 
 The industry demands a system that bridges the gap between the cognitive reasoning power of modern LLMs (like Llama-3.1-70B) and the absolute strictness of traditional software engineering.
 
@@ -20,7 +20,7 @@ The industry demands a system that bridges the gap between the cognitive reasoni
 
 ## 🚀 The Solution: FARSIX Architecture
 
-**FARSIX** (Framework for Agentic Reasoning and Supervised Intelligence) is a production-grade orchestration pipeline designed specifically to solve the non-deterministic nature of VLA agents. 
+**FARSIX** (Framework for Agentic Reasoning and Supervised Intelligence) is a production-grade orchestration pipeline designed specifically to solve the non-deterministic nature of multi-agent AI systems in physical environments.
 
 It implements a **Dual-Layer Cognitive Architecture**:
 1. **The Reasoning Layer (NVIDIA NIM)**: Utilizes high-parameter reasoning models (`Llama-3.1-70B-Instruct`) and specialized vision models (`Nemotron-Nano-VL-8B`) to understand complex spatial environments and generate comprehensive analytical reports.
@@ -38,7 +38,7 @@ By structuring the Colang rules as an automatic **Input Rail**, FARSIX triggers 
 <div align="center">
   <img src="docs/assets/demo_1.png" width="100%" alt="FARSIX Dynamic SVG Orchestration Graph">
   <br>
-  <i>The real-time Orchestration Dashboard tracking the VLA pipeline states.</i>
+  <i>The real-time Orchestration Dashboard tracking the multi-agent pipeline states.</i>
 </div>
 
 ---
